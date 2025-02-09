@@ -23,9 +23,9 @@ class KillauraModule : Module("killaura", ModuleCategory.Combat) {
     private var tpspeed by intValue("tp_speed", 1000, 100..2000)
 
     private var distanceToKeep by floatValue("keep_distance", 2.0f, 1f..5f)
-    private var strafeAngle = 0.0
-    private val strafeSpeed = 0.3
-    private val strafeRadius = 2.0
+    private var strafeAngle by floatValue("strafe_angle", 0.0f, 0.0f..360.0f)
+    private val strafeSpeed by floatValue("strafe_speed", 1.0f, 0.1f..2.0f)
+    private val strafeRadius by floatValue("strafe_radius", 1.0f, 0.1f..5.0f)
     private var lastAttackTime = 0L
     private var tpCooldown = 0L // Cooldown for teleportation to prevent spamming
 
@@ -65,7 +65,7 @@ class KillauraModule : Module("killaura", ModuleCategory.Combat) {
         // Calculate the new strafe position
         strafeAngle += strafeSpeed
         if (strafeAngle >= 360.0) {
-            strafeAngle -= 360.0
+            strafeAngle -= 360.0f
         }
 
         // Calculate the circular motion offset
@@ -87,7 +87,6 @@ class KillauraModule : Module("killaura", ModuleCategory.Combat) {
 
         session.clientBound(movePlayerPacket)
     }
-
     private fun teleportTo(entity: Entity, distance: Float) {
         val targetPosition = entity.vec3Position
         val playerPosition = session.localPlayer.vec3Position
@@ -168,7 +167,6 @@ class KillauraModule : Module("killaura", ModuleCategory.Combat) {
                     !this.isBot()
                 }
             }
-
             is EntityUnknown -> {
                 if (mobsOnly) {
                     isMob()
