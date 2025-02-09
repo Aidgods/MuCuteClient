@@ -87,6 +87,7 @@ class KillauraModule : Module("killaura", ModuleCategory.Combat) {
 
         session.clientBound(movePlayerPacket)
     }
+
     private fun teleportTo(entity: Entity, distance: Float) {
         val targetPosition = entity.vec3Position
         val playerPosition = session.localPlayer.vec3Position
@@ -167,6 +168,7 @@ class KillauraModule : Module("killaura", ModuleCategory.Combat) {
                     !this.isBot()
                 }
             }
+
             is EntityUnknown -> {
                 if (mobsOnly) {
                     isMob()
