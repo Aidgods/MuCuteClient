@@ -98,7 +98,7 @@ class KillauraModule : Module("killaura", ModuleCategory.Combat) {
             // Calculate the direction vector behind the target based on its rotation
             val direction = Vector3f.from(
                 -sin(targetYaw),  // X component (negative because we want to go behind)
-                targetPosition.y - playerPosition.y,
+                0f,              // No modification to Y-axis
                 -cos(targetYaw)  // Z component (negative because we want to go behind)
             )
 
@@ -120,7 +120,7 @@ class KillauraModule : Module("killaura", ModuleCategory.Combat) {
             // Calculate direction vector from the player to the target (X and Z only)
             val direction = Vector3f.from(
                 targetPosition.x - playerPosition.x,
-                targetPosition.y - playerPosition.y,
+                0f,  // No modification to Y-axis
                 targetPosition.z - playerPosition.z
             )
 
