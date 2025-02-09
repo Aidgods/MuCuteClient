@@ -92,28 +92,25 @@ class KillauraModule : Module("killaura", ModuleCategory.Combat) {
         val playerPosition = session.localPlayer.vec3Position
 
         val newPosition = if (teleportBehind) {
-            // Get the target's rotation (yaw) in radians
             val targetYaw = Math.toRadians(entity.vec3Rotation.y.toDouble()).toFloat()
 
-            // Calculate the direction vector behind the target based on its rotation
+            // Corrected direction calculation for behind
             val direction = Vector3f.from(
-                -sin(targetYaw),  // X component (negative because we want to go behind)
-                0f,              // No modification to Y-axis
-                -cos(targetYaw)  // Z component (negative because we want to go behind)
+                sin(targetYaw),  // Fixed: Removed negative sign to get correct direction
+                0f,
+                -cos(targetYaw)
             )
 
-            // Normalize the direction to make it a unit vector
             val length = direction.length()
             val normalizedDirection = if (length != 0f) {
-                Vector3f.from(direction.x / length, 0f, direction.z / length)  // No normalization for Y
+                Vector3f.from(direction.x / length, 0f, direction.z / length)
             } else {
                 direction
             }
 
-            // Calculate new position, offsetting by 'distance' blocks behind the target
             Vector3f.from(
                 targetPosition.x + normalizedDirection.x * distance,
-                targetPosition.y,  // Follow the target's Y-axis
+                targetPosition.y,
                 targetPosition.z + normalizedDirection.z * distance
             )
         } else {
