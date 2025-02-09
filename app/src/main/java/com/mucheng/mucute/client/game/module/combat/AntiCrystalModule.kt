@@ -26,7 +26,7 @@ class AntiCrystalModule : Module("anti_crystal", ModuleCategory.Combat) {
             val motionPacket = SetEntityMotionPacket()
             motionPacket.runtimeEntityId = packet.runtimeEntityId
             motionPacket.motion = Vector3f.from(0.0, ylevel.toDouble(), 0.0)
-            session.clientBound(motionPacket)
+            session.serverBound(motionPacket)
         }
     }
 
