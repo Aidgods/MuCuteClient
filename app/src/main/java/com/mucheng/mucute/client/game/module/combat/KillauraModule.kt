@@ -110,14 +110,14 @@ class KillauraModule : Module("killaura", ModuleCategory.Combat) {
                 direction
             }
 
-            // Calculate new position, offsetting by 'distance' blocks behind the target (X and Z only)
+            // Calculate new position, offsetting by 'distance' blocks behind the target
             Vector3f.from(
                 targetPosition.x + normalizedDirection.x * distance,
-                playerPosition.y,  // Keep the current Y-axis position to avoid sinking
+                targetPosition.y,  // Follow the target's Y-axis
                 targetPosition.z + normalizedDirection.z * distance
             )
         } else {
-            // Calculate direction vector from the player to the target (X and Z only)
+            // Calculate direction vector from the player to the target
             val direction = Vector3f.from(
                 targetPosition.x - playerPosition.x,
                 0f,  // No modification to Y-axis
@@ -132,10 +132,10 @@ class KillauraModule : Module("killaura", ModuleCategory.Combat) {
                 direction
             }
 
-            // Calculate new position, offsetting by 'distance' blocks away from the target (X and Z only)
+            // Calculate new position, offsetting by 'distance' blocks away from the target
             Vector3f.from(
                 targetPosition.x - normalizedDirection.x * distance,
-                playerPosition.y,  // Keep the current Y-axis position to avoid sinking
+                targetPosition.y,  // Follow the target's Y-axis
                 targetPosition.z - normalizedDirection.z * distance
             )
         }
@@ -154,6 +154,7 @@ class KillauraModule : Module("killaura", ModuleCategory.Combat) {
         // Send the teleportation packet
         session.clientBound(movePlayerPacket)
     }
+
 
 
 
