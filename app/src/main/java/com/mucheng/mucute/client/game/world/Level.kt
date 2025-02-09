@@ -5,16 +5,25 @@ import com.mucheng.mucute.client.game.entity.Entity
 import com.mucheng.mucute.client.game.entity.EntityUnknown
 import com.mucheng.mucute.client.game.entity.Item
 import com.mucheng.mucute.client.game.entity.Player
+import org.cloudburstmc.protocol.bedrock.packet.AddEntityPacket
+import org.cloudburstmc.protocol.bedrock.packet.AddItemEntityPacket
+import org.cloudburstmc.protocol.bedrock.packet.AddPlayerPacket
+import org.cloudburstmc.protocol.bedrock.packet.BedrockPacket
+import org.cloudburstmc.protocol.bedrock.packet.PlayerListPacket
+import org.cloudburstmc.protocol.bedrock.packet.RemoveEntityPacket
+import org.cloudburstmc.protocol.bedrock.packet.StartGamePacket
+import org.cloudburstmc.protocol.bedrock.packet.TakeItemEntityPacket
+import java.util.UUID
+import java.util.concurrent.ConcurrentHashMap
 import org.cloudburstmc.math.vector.Vector3f
 import org.cloudburstmc.protocol.bedrock.packet.*
 import java.util.*
-import java.util.concurrent.ConcurrentHashMap
 import kotlin.math.pow
-
 @Suppress("MemberVisibilityCanBePrivate")
 class Level(val session: GameSession) {
 
     val entityMap = ConcurrentHashMap<Long, Entity>()
+
     val playerMap = ConcurrentHashMap<UUID, PlayerListPacket.Entry>()
 
     fun onDisconnect() {
@@ -93,7 +102,6 @@ class Level(val session: GameSession) {
             }
         }
     }
-
     /**
      * Simulates explosion damage for entities within the explosion radius.
      *
