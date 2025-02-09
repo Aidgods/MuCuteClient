@@ -13,7 +13,7 @@ class CriticModule : Module("critic", ModuleCategory.Combat) {
 
         val packet = interceptablePacket.packet
         if (packet is MovePlayerPacket) {
-            packet.position = packet.position.add(0.0,0.001,0.0)
+            packet.position = packet.position.add(0.0,0.2,0.0)
             packet.isOnGround = false
         }
     }

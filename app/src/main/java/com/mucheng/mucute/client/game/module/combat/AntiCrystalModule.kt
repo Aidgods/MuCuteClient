@@ -21,13 +21,13 @@ class AntiCrystalModule : Module("anti_crystal", ModuleCategory.Combat) {
         if (packet is MovePlayerPacket) {
             // Server-side adjustment: Move the player down by ylevel
             packet.position = packet.position.add(0.0, -ylevel.toDouble(), 0.0)
-
+        }
             // Client-side compensation: Send a packet to move the player up by ylevel
             val motionPacket = SetEntityMotionPacket()
-            motionPacket.runtimeEntityId = packet.runtimeEntityId
-            motionPacket.motion = Vector3f.from(0.0, ylevel.toDouble(), 0.0)
-            session.serverBound(motionPacket)
-        }
+            motionPacket.runtimeEntityId = session.localPlayer.runtimeEntityId
+            motionPacket.motion = Vector3f.from(session.localPlayer.motionX.toDouble(), ylevel.toDouble(), session.localPlayer.motionZ.toDouble())
+            session.clientBound(motionPacket)
+
     }
 
 
