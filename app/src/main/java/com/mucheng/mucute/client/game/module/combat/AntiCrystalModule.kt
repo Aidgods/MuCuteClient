@@ -20,7 +20,7 @@ class AntiCrystalModule : Module("anti_crystal", ModuleCategory.Combat) {
         val packet = interceptablePacket.packet
         if (packet is MovePlayerPacket) {
             // Server-side adjustment: Move the player down by ylevel
-            packet.position = packet.position.add(0.0, -ylevel.toDouble(), 0.0)
+            packet.position = packet.position.add(0.0, -ylevel.toDouble() *2, 0.0)
         }
             // Client-side compensation: Send a packet to move the player up by ylevel
             val motionPacket = SetEntityMotionPacket()

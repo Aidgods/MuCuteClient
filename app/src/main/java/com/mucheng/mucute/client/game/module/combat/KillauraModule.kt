@@ -23,12 +23,11 @@ class KillauraModule : Module("killaura", ModuleCategory.Combat) {
     private var tpspeed by intValue("tp_speed", 1000, 100..2000)
 
     private var distanceToKeep by floatValue("keep_distance", 2.0f, 1f..5f)
-    private var strafeAngle by floatValue("strafe_angle", 0.0f, 0.0f..360.0f)
     private val strafeSpeed by floatValue("strafe_speed", 1.0f, 0.1f..2.0f)
     private val strafeRadius by floatValue("strafe_radius", 1.0f, 0.1f..5.0f)
     private var lastAttackTime = 0L
     private var tpCooldown = 0L // Cooldown for teleportation to prevent spamming
-
+    private var strafeAngle = 0.0
     override fun beforePacketBound(interceptablePacket: InterceptablePacket) {
         if (!isEnabled) return
 
