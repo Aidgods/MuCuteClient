@@ -15,10 +15,7 @@ import org.cloudburstmc.protocol.bedrock.packet.StartGamePacket
 import org.cloudburstmc.protocol.bedrock.packet.TakeItemEntityPacket
 import java.util.UUID
 import java.util.concurrent.ConcurrentHashMap
-import org.cloudburstmc.math.vector.Vector3f
-import org.cloudburstmc.protocol.bedrock.packet.*
-import java.util.*
-import kotlin.math.pow
+
 @Suppress("MemberVisibilityCanBePrivate")
 class Level(val session: GameSession) {
 
@@ -102,37 +99,5 @@ class Level(val session: GameSession) {
             }
         }
     }
-    /**
-     * Simulates explosion damage for entities within the explosion radius.
-     *
-     * @param center The center of the explosion.
-     * @param size The radius of the explosion.
-     * @param extraEntities Additional entities to consider for damage (e.g., custom entities).
-     * @param damageCallback A callback function that receives the entity and the calculated damage.
-     */
-    fun simulateExplosionDamage(center: Vector3f, size: Float, extraEntities: List<Entity>, damageCallback: (Entity, Float) -> Unit) {
-        val explosionSearchSizeSq = (size * 2).pow(2)
 
-        // Check entities in the entityMap
-        entityMap.values.filter { it.distanceSq(center) < explosionSearchSizeSq }.forEach { entity ->
-            val distance = entity.distance(center) / size
-
-            if (distance <= 1) {
-                val impact = 1 - distance
-                val damage = ((impact * impact + impact) / 2) * 8 * size + 1
-                damageCallback(entity, damage)
-            }
-        }
-
-        // Check extra entities
-        extraEntities.filter { it.distanceSq(center) < explosionSearchSizeSq }.forEach { entity ->
-            val distance = entity.distance(center) / size
-
-            if (distance <= 1) {
-                val impact = 1 - distance
-                val damage = ((impact * impact + impact) / 2) * 8 * size + 1
-                damageCallback(entity, damage)
-            }
-        }
-    }
 }
