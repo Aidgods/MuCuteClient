@@ -15,13 +15,6 @@ integrity of the original client. 🎮✨
 ![Divider](images/divider.png)
 
 
-## Atlantis Group
-
-![Contributed By Mystica](https://github.com/m1Stic-Z/)
-![DeadHeart](https://github.com/m1Stic-Z/deadheart)
-
-
-
 ## Notice
 
 **MuCuteClient is developed independently and does not utilize any code from protohax. Any attempts to
