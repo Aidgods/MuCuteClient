@@ -78,7 +78,7 @@ channels:
 
 ![Divider](images/divider.png)
 
-## Credits
+## Credits 🩷
 
 Credits for all volunteers 
 - **MuCheng** https://github.com/CaiMuCheng
