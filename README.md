@@ -84,13 +84,14 @@ Credits for all volunteers
 - **MuCheng** https://github.com/CaiMuCheng
 - **Lodingglue** https://github.com/Lodingglue
 - **MrPokeG** https://github.com/MrPokeG
-- **m1_stic** https://github.com/m1Stic-Z
+- **m1_stic** https://github.com/m1Stic-Z (Alantis Group)
+- ![DeadHeart](https://github.com/m1Stic-Z/deadheart)
 - **TrippleAWap** https://github.com/TrippleAWap
 - **AnswerDev** https://github.com/answer2
 - **AidGods** https://github.com/Aidgods
 - **kpxyy** https://github.com/kpxyy
 - **StaycYuki** https://github.com/KATZEYEUEU
-
+  
 
 **I would like to express my heartfelt gratitude to everyone who contributed to shaping MuCute. Your dedication in developing modules, creating videos, and assisting in bug fixes has been invaluable in transforming MuCuteClient into what it is today. Thank you for your hard work and commitment. 🩷**
 
