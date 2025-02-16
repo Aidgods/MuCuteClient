@@ -80,11 +80,19 @@ channels:
 
 ## Credits
 
-Credits for Part of the code:
-- **Hax0r**: [GitHub Profile](https://github.com/hax0r31337)
-- **Wlenk**: [GitHub Profile](https://github.com/Wlenk)
+Credits for all volunteers 
+- **MuCheng** https://github.com/CaiMuCheng
+- **Lodingglue** https://github.com/Lodingglue
+- **MrPokeG** https://github.com/MrPokeG
+- **m1_stic** https://github.com/m1Stic-Z
+- **TrippleAWap** https://github.com/TrippleAWap
+- **AnswerDev** https://github.com/answer2
+- **AidGods** https://github.com/Aidgods
+- **kpxyy** https://github.com/kpxyy
+- **StaycYuki** https://github.com/KATZEYEUEU
 
-![Divider](images/divider.png)
+
+**I would like to express my heartfelt gratitude to everyone who contributed to shaping MuCute. Your dedication in developing modules, creating videos, and assisting in bug fixes has been invaluable in transforming MuCuteClient into what it is today. Thank you for your hard work and commitment. 🩷**
 
 ## License 📝  
 
